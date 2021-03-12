@@ -1,17 +1,29 @@
+import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/Image-Link-Form/ImageLinkForm.component';
 
-function App() {
-  return (
-    <div className="App">
-      <Navigation />
-      <Logo />
-      <ImageLinkForm />
-      {/* <FaceRecognition/> */}
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      input: '',
+    };
+  }
+  onInputChange = (event) => {
+    console.log(event);
+  };
+  render() {
+    return (
+      <div className="App">
+        <Navigation />
+        <Logo />
+        <ImageLinkForm onInputChange={this.onInputChange} />
+        {/* <FaceRecognition/> */}
+      </div>
+    );
+  }
 }
 
 export default App;
